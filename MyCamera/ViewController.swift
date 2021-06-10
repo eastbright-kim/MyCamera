@@ -11,6 +11,14 @@ import Photos
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var photoLibraryButton: UIButton!
+    @IBOutlet weak var switchButton: UIButton!
+    @IBOutlet weak var captureButton: UIButton!
+    @IBOutlet weak var previewView: PreviewView!
+    @IBOutlet weak var blurBGView: UIVisualEffectView!
+    
+    
+    
     let captureSession = AVCaptureSession()
     var videoDeviceInput: AVCaptureDeviceInput!
     let photoOutput = AVCapturePhotoOutput()
@@ -22,6 +30,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        sessionQueue.async {
+//            self.setupSession()
+//            self.startSession()
+        }
+        
     }
 
 

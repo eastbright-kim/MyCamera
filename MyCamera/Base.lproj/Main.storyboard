@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,88 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyCamera" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="en5-oE-n8d" customClass="PreviewView" customModule="MyCamera" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWg-rV-XCo">
+                                        <rect key="frame" x="164.5" y="739" width="85" height="85"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dne-9B-Xvg">
+                                            <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="regular"/>
+                                    </visualEffectView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ta6-hb-45b">
+                                        <rect key="frame" x="174.5" y="749" width="65" height="65"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="65" id="KYF-xT-cmQ"/>
+                                            <constraint firstAttribute="height" constant="65" id="Wa0-Ec-5FF"/>
+                                        </constraints>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GeR-5h-yFX">
+                                        <rect key="frame" x="84.5" y="761.5" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="HXF-eE-QVk"/>
+                                            <constraint firstAttribute="height" constant="40" id="yOx-ZA-kQp"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="ic_photo_camera"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oi6-Yo-TaZ">
+                                        <rect key="frame" x="349" y="72" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="1Wb-Dh-pcg"/>
+                                            <constraint firstAttribute="height" constant="45" id="58f-Ie-m9B"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="ic_camera_rear"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ta6-hb-45b" firstAttribute="leading" secondItem="GeR-5h-yFX" secondAttribute="trailing" constant="50" id="3Mg-iY-41f"/>
+                                    <constraint firstItem="GeR-5h-yFX" firstAttribute="centerY" secondItem="ta6-hb-45b" secondAttribute="centerY" id="7Ni-bY-EVT"/>
+                                    <constraint firstItem="RWg-rV-XCo" firstAttribute="width" secondItem="ta6-hb-45b" secondAttribute="width" constant="20" id="IcQ-9T-r4n"/>
+                                    <constraint firstAttribute="trailing" secondItem="oi6-Yo-TaZ" secondAttribute="trailing" constant="20" id="Peq-mv-EqX"/>
+                                    <constraint firstItem="RWg-rV-XCo" firstAttribute="centerX" secondItem="ta6-hb-45b" secondAttribute="centerX" id="gkT-QO-BJd"/>
+                                    <constraint firstItem="ta6-hb-45b" firstAttribute="centerX" secondItem="en5-oE-n8d" secondAttribute="centerX" id="kGg-8M-GNL"/>
+                                    <constraint firstItem="oi6-Yo-TaZ" firstAttribute="top" secondItem="en5-oE-n8d" secondAttribute="topMargin" constant="20" id="lqs-U8-Vka"/>
+                                    <constraint firstItem="RWg-rV-XCo" firstAttribute="height" secondItem="ta6-hb-45b" secondAttribute="height" constant="20" id="pej-Wv-ysf"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="ta6-hb-45b" secondAttribute="bottom" constant="40" id="rd5-Hz-oOE"/>
+                                    <constraint firstItem="RWg-rV-XCo" firstAttribute="centerY" secondItem="ta6-hb-45b" secondAttribute="centerY" id="ykl-xV-Ima"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="en5-oE-n8d" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="6aZ-9B-fK2"/>
+                            <constraint firstAttribute="bottom" secondItem="en5-oE-n8d" secondAttribute="bottom" id="6hI-6n-tGS"/>
+                            <constraint firstAttribute="trailing" secondItem="en5-oE-n8d" secondAttribute="trailing" id="8G7-0h-Lh8"/>
+                            <constraint firstItem="en5-oE-n8d" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gk4-sj-qHd"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="blurBGView" destination="RWg-rV-XCo" id="RJp-vS-uOo"/>
+                        <outlet property="captureButton" destination="ta6-hb-45b" id="nsN-rb-ttE"/>
+                        <outlet property="photoLibraryButton" destination="GeR-5h-yFX" id="Vrk-dp-QaX"/>
+                        <outlet property="previewView" destination="en5-oE-n8d" id="FN9-sp-Q13"/>
+                        <outlet property="switchButton" destination="oi6-Yo-TaZ" id="8Ni-PV-LaX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="30" y="89"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_camera_rear" width="24" height="24"/>
+        <image name="ic_photo_camera" width="24" height="24"/>
+    </resources>
 </document>

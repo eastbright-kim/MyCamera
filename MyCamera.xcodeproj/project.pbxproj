@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB48BD472672159C00D6F92A /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB48BD462672159C00D6F92A /* PreviewView.swift */; };
 		DBE634052670DFCD005257C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE634042670DFCD005257C0 /* AppDelegate.swift */; };
 		DBE634072670DFCD005257C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE634062670DFCD005257C0 /* SceneDelegate.swift */; };
 		DBE634092670DFCD005257C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE634082670DFCD005257C0 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB48BD462672159C00D6F92A /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		DBE634012670DFCD005257C0 /* MyCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBE634042670DFCD005257C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBE634062670DFCD005257C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				DBE634042670DFCD005257C0 /* AppDelegate.swift */,
 				DBE634062670DFCD005257C0 /* SceneDelegate.swift */,
 				DBE634082670DFCD005257C0 /* ViewController.swift */,
+				DB48BD462672159C00D6F92A /* PreviewView.swift */,
 				DBE6340A2670DFCD005257C0 /* Main.storyboard */,
 				DBE6340D2670DFCE005257C0 /* Assets.xcassets */,
 				DBE6340F2670DFCE005257C0 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBE634092670DFCD005257C0 /* ViewController.swift in Sources */,
+				DB48BD472672159C00D6F92A /* PreviewView.swift in Sources */,
 				DBE634052670DFCD005257C0 /* AppDelegate.swift in Sources */,
 				DBE634072670DFCD005257C0 /* SceneDelegate.swift in Sources */,
 			);
