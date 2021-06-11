@@ -17,8 +17,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var previewView: PreviewView!
     @IBOutlet weak var blurBGView: UIVisualEffectView!
     
-    
-    
     let captureSession = AVCaptureSession()
     var videoDeviceInput: AVCaptureDeviceInput!
     let photoOutput = AVCapturePhotoOutput()
@@ -26,18 +24,43 @@ class ViewController: UIViewController {
     let sessionQueue = DispatchQueue(label: "session Queue")
     let videoDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInTripleCamera, .builtInTripleCamera], mediaType: .video, position: .unspecified)
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        previewView.session = captureSession
+        
         sessionQueue.async {
-//            self.setupSession()
-//            self.startSession()
+            self.setupSession()
+            self.startSession()
         }
+        setupUI()
+    }
+    
+    func setupUI() {
+        photoLibraryButton.layer.cornerRadius = 10
+        photoLibraryButton.layer.masksToBounds = true
+        photoLibraryButton.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        photoLibraryButton.layer.borderWidth = 1
+        
+        captureButton.layer.cornerRadius = captureButton.bounds.height / 2
+        captureButton.layer.masksToBounds = true
+        
+        blurBGView.layer.cornerRadius = blurBGView.bounds.height / 2
+        blurBGView.layer.masksToBounds = true
         
     }
 
-
+    func setupSession() {
+        
+    }
+    
+    func startSession() {
+        
+    }
 }
 
