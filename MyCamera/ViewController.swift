@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     let photoOutput = AVCapturePhotoOutput()
     
     let sessionQueue = DispatchQueue(label: "session Queue")
-    let videoDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInTripleCamera, .builtInTripleCamera], mediaType: .video, position: .unspecified)
+    let videoDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInWideAngleCamera, .builtInTrueDepthCamera], mediaType: .video, position: .back)
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -38,6 +38,7 @@ class ViewController: UIViewController {
             self.setupSession()
             self.startSession()
         }
+        
         setupUI()
     }
     
@@ -57,10 +58,56 @@ class ViewController: UIViewController {
 
     func setupSession() {
         
+        captureSession.sessionPreset = .photo
+        captureSession.beginConfiguration()
+        
+        guard let camera = videoDeviceDiscoverySession.devices.first else {
+            captureSession.commitConfiguration()
+            return
+        }
+        
+        do {
+            let videoDeviceInput = try AVCaptureDeviceInput(device: camera)
+            
+            if captureSession.canAddInput(videoDeviceInput) {
+                captureSession.addInput(videoDeviceInput)
+            } else {
+                captureSession.commitConfiguration()
+                return
+            }
+            
+        } catch let error {
+            captureSession.commitConfiguration()
+            return
+        }
+        
+        photoOutput.setPreparedPhotoSettingsArray([AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])], completionHandler: nil)
+            
+        if captureSession.canAddOutput(photoOutput) {
+            captureSession.addOutput(photoOutput)
+        } else {
+            captureSession.commitConfiguration()
+            return
+        }
+        
+        captureSession.commitConfiguration()
     }
     
     func startSession() {
-        
+        sessionQueue.async {
+            
+            if !self.captureSession.isRunning {
+                self.captureSession.startRunning()
+            }
+        }
+    }
+    
+    func stopSession() {
+        sessionQueue.async {
+            if self.captureSession.isRunning {
+                self.captureSession.stopRunning()
+            }
+        }
     }
 }
 
